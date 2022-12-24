@@ -4,22 +4,24 @@ import TweetBox from './TweetBox';
 function UrlInput() {
     const [url, setUrl] = useState(' ');
     
-    const onClickHandler = ()=> {
-      <TweetBox Url={url} />
-      
-
+    const onClickhandler =()=>{
+      <TweetBox Url = {url} />
+         
     }
+
+    
+   
     return (
       <div className="url-input">
         <input
           type="text"
           placeholder="Enter tweet URL"
-          value={url}
-          onChange={(event) => setUrl(event.target.value)}
+          value= {url}
+          onChange={e => setUrl(e.target.value)}
         />
         
-        <button onClick={() => { onClickHandler() }}>Show tweet</button>
-        
+        {/* <button onClick={ onClickhandler}>Show tweet</button> */}
+        <TweetBox Url={url} />
       </div>
     );
   }

@@ -1,17 +1,11 @@
 import React, { useState ,useEffect} from 'react';
-const { TwitterApi } = require('twitter-api-v2');
-
- URL = URL || require('url').URL
-
-const twitterClient = new TwitterApi('AAAAAAAAAAAAAAAAAAAAAIZjiwEAAAAApgiQCjVm4qbN62F3ZzV3bw%2BRIXg%3DEpk60DNg1yZdEqfcAeSmxoBLBjIdIFXamCCrMUuPcZMDHzLX8x');
+import axios from 'axios';
 
 type Props = {
   Url: string;
 };
 
-const TweetBox: React.FC<Props> =( {Url} ) =>{
-  console.log("reached")
-  console.log(Url);
+const TweetBox: React.FC<Props> = ({Url}) => {
   const [tweet, setTweet] = useState({
     text: '',
     name: '',
@@ -20,22 +14,34 @@ const TweetBox: React.FC<Props> =( {Url} ) =>{
   });
 
   const tweetUrl = Url;
-  const url = new URL(tweetUrl);
-  const tweetId = url.pathname.split('/').pop();
-  console.log(tweetId);
+
+  const urlParts = tweetUrl.split('/');
+
+  // Get the last element in the array, which should be the tweet ID
+  const tweetId = urlParts.pop();
+
   useEffect(() => {
-    (async () => {
-      const tweet = await twitterClient.v2.singleTweet(tweetId, {
-        expansions: [
-        'entities.mentions.username',
-        'in_reply_to_user_id',
-        ],
-        });
-        setTweet({...tweet,text: tweet.data.text})
-        console.log(tweet.text);
+    const fetchTweet = async () => {
+      axios.get(`http://localhost:3000/api/tweet`, {
+        params:{
+          tweetId: tweetId
+        }
+      })
+        .then(response => {
+          console.log(response.data)
+          const tweetstr = JSON.stringify(response.data);
+          console.log(tweetstr)
+          
+          // setTweet({...tweet, [tweet.text] : response.data})
+          // console.log(tweet.text)
+        })
+        .catch(error => {
+          // Handle any errors
+        })
     }
-    
-  )}, [Url]);
+
+    fetchTweet();
+  }, [Url]);
 
   return (
     <div className="tweet-box">
