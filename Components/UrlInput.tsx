@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import TweetBox from './TweetBox';
 
+
 function UrlInput() {
     const [url, setUrl] = useState(' ');
     
@@ -14,6 +15,7 @@ function UrlInput() {
     return (
       <div className="url-input">
         <input
+          
           type="text"
           placeholder="Enter tweet URL"
           value= {url}

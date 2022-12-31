@@ -22,22 +22,31 @@ const TweetBox: React.FC<Props> = ({Url}) => {
 
   useEffect(() => {
     const fetchTweet = async () => {
-      axios.get(`http://localhost:3000/api/tweet`, {
+      axios.get(`http://localhost:3000/api/tweet`, 
+      {
+        // responseType: 'text',
+        // transformResponse: [v => v],
         params:{
           tweetId: tweetId
         }
       })
         .then(response => {
           console.log(response.data)
-          const tweetstr = JSON.stringify(response.data);
-          console.log(tweetstr)
-          
-          // setTweet({...tweet, [tweet.text] : response.data})
-          // console.log(tweet.text)
+          setTweet( {...tweet,
+            text: response.data.tweettext,
+            name: response.data.username,
+            date: response.data.date,
+            time: response.data.time
+          });
+          console.log(tweet.text)
+          console.log(tweet.date)
+          console.log(tweet.name)
         })
         .catch(error => {
           // Handle any errors
         })
+
+      
     }
 
     fetchTweet();
