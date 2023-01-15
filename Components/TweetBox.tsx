@@ -1,5 +1,6 @@
 import React, { useState ,useEffect} from 'react';
 import axios from 'axios';
+import TweetCard from './TweetCard';
 
 type Props = {
   Url: string;
@@ -7,10 +8,11 @@ type Props = {
 
 const TweetBox: React.FC<Props> = ({Url}) => {
   const [tweet, setTweet] = useState({
-    text: '',
-    name: '',
-    date: '',
-    time: ''
+    text: 'Testing this tweet out',
+    name: 'Sanket Bhat',
+    username: 'Sanketbhat11',
+    date: '10:03 PM · Jan 3, 2023',
+    imageurl: 'https://pbs.twimg.com/profile_images/1521352958713413632/GD88rHP4_400x400.jpg'
   });
 
   const tweetUrl = Url;
@@ -22,7 +24,7 @@ const TweetBox: React.FC<Props> = ({Url}) => {
 
   useEffect(() => {
     const fetchTweet = async () => {
-      axios.get(`http://localhost:3000/api/tweet`, 
+      axios.get(`http://localhost:3001/api/tweet`, 
       {
         // responseType: 'text',
         // transformResponse: [v => v],
@@ -34,9 +36,11 @@ const TweetBox: React.FC<Props> = ({Url}) => {
           console.log(response.data)
           setTweet( {...tweet,
             text: response.data.tweettext,
-            name: response.data.username,
+            name: response.data.name,
+            username: response.data.username,
             date: response.data.date,
-            time: response.data.time
+            imageurl: response.data.profilepic
+            
           });
           console.log(tweet.text)
           console.log(tweet.date)
@@ -54,13 +58,13 @@ const TweetBox: React.FC<Props> = ({Url}) => {
 
   return (
     <div className="tweet-box">
-      {tweet ? (
-        <div>
-          <p>{tweet.text}</p>
-        </div>
-      ) : (
-        <p>Loading tweet...</p>
-      )}
+      <TweetCard 
+        text={tweet.text}
+        name={tweet.name}
+        username={tweet.username}
+        date={tweet.date}
+        imageurl={tweet.imageurl}
+      />
     </div>
   );
 }

@@ -4,7 +4,7 @@ const app = express();
 app.use(cors());
 const router = express.Router();
 const { TwitterApi } = require('twitter-api-v2');
-const port = 3000;
+const port = 3001;
 const id = '1606964645973348358'
 
 const BearerToken ='AAAAAAAAAAAAAAAAAAAAAIZjiwEAAAAApgiQCjVm4qbN62F3ZzV3bw%2BRIXg%3DEpk60DNg1yZdEqfcAeSmxoBLBjIdIFXamCCrMUuPcZMDHzLX8x'
@@ -30,6 +30,7 @@ app.get('/api/tweet',async (req, res) => {
                 'in_reply_to_user_id',
               ],
             });
+    const User = await twitterClient.v2.user(tweetId, { 'tweet.fields': ['id', 'text'] });
     const axios = require('axios');
           
     // Make a GET request to the Twitter API to get the details of the tweet
@@ -45,25 +46,28 @@ app.get('/api/tweet',async (req, res) => {
           
             // Extract the tweet details from the response
             const tweetr = await tweetResponse.data;
-            const tweettext = tweetr.text;
+            const tweettext = tweet.data.text;
+            const name = tweetr.user.name;
             const username = tweetr.user.screen_name;
-            const profilepic =tweetr.user.profile_image_url;
+            const profilepic =tweetr.user.profile_image_url_https;
             const time = tweetr.created_at;
             const date = tweetr.created_at;
             
-          //   console.log(tweet)
+            // console.log(tweet.data.text)
             // console.log(username)
             // console.log(time)
             // console.log(date)    
             // console.log(tweettext)
+            console.log(tweetr)
+            console.log(User)
            
 
     res.json({ 
       username: username,
       tweettext: tweettext,
       date: date,
-      time: time,
-      
+      profilepic: profilepic,
+      name: name
     });
       
 })
