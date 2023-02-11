@@ -1,10 +1,10 @@
 .Card{
     padding: 1rem;
-    box-shadow: 0 2px 8px rgba(0.1, 0.1, 0.1, 0.1);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     border-radius: 14px;
-    background-color: white;
+    background-color: rgb(248 250 252);
     width: fit-content;
     height: fit-content;
     max-width: 430px;
-    max-height: 600px;
+    max-height: fit-content;
 }

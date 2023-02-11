@@ -12,7 +12,8 @@ const TweetBox: React.FC<Props> = ({Url}) => {
     name: 'Sanket Bhat',
     username: 'Sanketbhat11',
     date: '10:03 PM · Jan 3, 2023',
-    imageurl: 'https://pbs.twimg.com/profile_images/1521352958713413632/GD88rHP4_400x400.jpg'
+    imageurl: 'https://pbs.twimg.com/profile_images/1521352958713413632/GD88rHP4_400x400.jpg',
+    pic: " "
   });
 
   const tweetUrl = Url;
@@ -39,7 +40,8 @@ const TweetBox: React.FC<Props> = ({Url}) => {
             name: response.data.name,
             username: response.data.username,
             date: response.data.date,
-            imageurl: response.data.profilepic
+            imageurl: response.data.profilepic,
+            pic: response.data.pic
             
           });
           console.log(tweet.text)
@@ -64,6 +66,7 @@ const TweetBox: React.FC<Props> = ({Url}) => {
         username={tweet.username}
         date={tweet.date}
         imageurl={tweet.imageurl}
+        pic={tweet.pic}
       />
     </div>
   );
