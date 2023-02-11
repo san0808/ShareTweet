@@ -5,7 +5,6 @@ app.use(cors());
 const router = express.Router();
 const { TwitterApi } = require('twitter-api-v2');
 const port = 3001;
-const id = '1606964645973348358'
 
 const dotenv = require("dotenv")
 
@@ -13,23 +12,13 @@ dotenv.config()
 
 const BearerToken = process.env.BEARER_TOKEN;
 
-// const BearerToken ='AAAAAAAAAAAAAAAAAAAAAIZjiwEAAAAApgiQCjVm4qbN62F3ZzV3bw%2BRIXg%3DEpk60DNg1yZdEqfcAeSmxoBLBjIdIFXamCCrMUuPcZMDHzLX8x'
+
 
 app.get('/api/tweet',async (req, res) => {
     const twitterClient = new TwitterApi(BearerToken);
-    const client = new TwitterApi({
-      consumer_key: "DvfkBh0xDQjU9MpyRt0GBSVrv",
-      consumer_secret: "XKWhVuZ2gW7mJcaRjCnqIpZ9LWAWtdmSBjDTq1rx47xZzc4TaT",
-      access_token_key: "1369836620464066561-YGhaSooTYaOSi9Ix6j6UwZwFgKcxe4",
-      access_token_secret: "3hKrREZ5BGLnAKUqr1rW7OEFesOXsTNERyUGeKLyzuZ0d"
-      
-    });
-    let tweetId = req.query.tweetId;
-    // const tweetid =
-    // let tweetId = '1609044032423968768'
     
-    // console.log('tweetId:', req.query.tweetId);
-    // res.set('Cache-Control', 'no-cache');
+    let tweetId = req.query.tweetId;
+    
     const tweet = await twitterClient.v2.singleTweet(tweetId, {
               expansions: [
                 'entities.mentions.username',
@@ -63,14 +52,7 @@ app.get('/api/tweet',async (req, res) => {
             const name = tweetr.user.name;
             const username = tweetr.user.screen_name;
             const profilepic =tweetr.user.profile_image_url_https;
-            const time = tweetr.created_at;
             const date = tweetr.created_at;
-           
-            // console.log(tweet.data.text)
-            // console.log(username)
-            // console.log(time)
-            // console.log(date)    
-            // console.log(tweettext)
             console.log(tweetr)
            
            

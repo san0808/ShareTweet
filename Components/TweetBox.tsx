@@ -27,8 +27,6 @@ const TweetBox: React.FC<Props> = ({Url}) => {
     const fetchTweet = async () => {
       axios.get(`http://localhost:3001/api/tweet`, 
       {
-        // responseType: 'text',
-        // transformResponse: [v => v],
         params:{
           tweetId: tweetId
         }
