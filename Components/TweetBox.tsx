@@ -25,7 +25,8 @@ const TweetBox: React.FC<Props> = ({Url}) => {
 
   useEffect(() => {
     const fetchTweet = async () => {
-      axios.get(`http://localhost:3001/api/tweet`, 
+      axios.get(`https://sharetweetbackend-1.onrender.com/api/tweet`, //http://localhost:3001/api/tweet
+       
       {
         params:{
           tweetId: tweetId
