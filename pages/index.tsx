@@ -6,11 +6,7 @@ import UrlInput from '../Components/UrlInput';
 
 export default function Home() {
 
-    
-
 	return (
-
-		
 		<div >
 		<Header/>	
 		<UrlInput  />		
