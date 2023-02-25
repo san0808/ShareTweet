@@ -1,15 +1,7 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
-/* @import '../node_modules/tailwindcss/base';
-@import '../node_modules/tailwindcss/components';
-/* @import '../node_modules/base.css'; 
-@import '../node_modules/tailwindcss/utilities'; */
-
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
 
 body{
     background-color: rgb(240 253 244);
