@@ -24,14 +24,10 @@ const TweetCard: React.FC<Props> = ({ text, name, username, date, imageurl ,pic}
     if (element === null) {
       return;
     }
-
-    const userFileName = window.prompt('Enter the file name:', fileName);
-    if (!userFileName) {
-      return;
-    }
-    
+  
+    const userFileName = `tweet by ${username} ${date}`;
     setFileName(userFileName + '.png');
-
+  
     toPng(element, { cacheBust: false })
       .then((dataUrl) => {
         const link = document.createElement('a');
@@ -42,7 +38,7 @@ const TweetCard: React.FC<Props> = ({ text, name, username, date, imageurl ,pic}
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [username, date]);
 
   useEffect(() => {
     if (ref.current !== null) {
