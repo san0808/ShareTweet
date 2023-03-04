@@ -56,7 +56,7 @@ const TweetCard: React.FC<Props> = ({ text, name, username, date, imageurl ,pic}
               <img id="tweet-content" crossOrigin='anonymous' className='h-10 w-10 rounded-full' src={imageurl} />
               <div className='pl-4'>{name}</div>
             </div>
-            <p className=' py-2.5'>{text}</p>
+            <p className=' py-2.5' dangerouslySetInnerHTML={{ __html: text.replace(/\n/g, "<br>") }}></p>
             {pic && <img className="rounded-lg h-100 w-100" src={pic}/>}
             
           </div>
