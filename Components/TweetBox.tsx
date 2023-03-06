@@ -8,7 +8,7 @@ type Props = {
 
 const TweetBox: React.FC<Props> = ({Url}) => {
   const [tweet, setTweet] = useState({
-    text: 'Testing this tweet out',
+    text: "Testing this tweet out ",
     name: 'Sanket Bhat',
     username: 'Sanketbhat11',
     date: '10:03 PM · Jan 3, 2023',
@@ -25,7 +25,8 @@ const TweetBox: React.FC<Props> = ({Url}) => {
 
   useEffect(() => {
     const fetchTweet = async () => {
-      axios.get(`http://localhost:3001/api/tweet`, 
+      axios.get(`https://sharetweetbackend-1.onrender.com/api/tweet`, //http://localhost:3001/api/tweet
+       
       {
         params:{
           tweetId: tweetId

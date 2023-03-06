@@ -1,0 +1,34 @@
+.color-selector {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .selected-color {
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    cursor: pointer;
+  }
+  
+  .color-selector:hover .color-options {
+    display: block;
+  }
+  
+  .color-options {
+    position: absolute;
+    top: 32px;
+    left: 0;
+    display: none;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 16px rgba(0, 0, 0, 0.08);
+  }
+  
+  .color-swatch {
+    width: 32px;
+    height: 32px;
+    border-radius: 9999px;
+    margin: 8px;
+    cursor: pointer;
+  }
+  
