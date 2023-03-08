@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Card from './UI/Card';
-
+// import styles from '../styles/ColorSelector.css '
 type Props = {
   currentColor: string;
   onColorSelect: (color: string) => void;
@@ -12,16 +12,17 @@ const ColorSelector: React.FC<Props> = ({ currentColor, onColorSelect }) => {
 
 
   return (
-    <div className="relative inline-block">
+    <div className="relative flex items-center justify-center h-10 w-10 hover:bg-slate-100  " 
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}>
       <div
-        className="rounded-full h-6 w-6 cursor-pointer"
+        className="rounded-full h-6 w-6 cursor-pointer "
         style={{ backgroundColor: currentColor }}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        
       />
-      <div className="absolute top-8 left-0 z-10">
+      <div className="absolute top-10 left-0 z-10">
         <div
-          className={`p-1 bg-white rounded-lg shadow-md ${isHovered ? 'block' : 'hidden'}`}
+          className={`p-1 bg-white rounded-lg shadow-md after:content-none after:bottom-4 ${isHovered ? 'block' : 'hidden'}`}
           style={{ minWidth: '2rem' }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}

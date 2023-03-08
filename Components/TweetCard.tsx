@@ -73,11 +73,13 @@ const TweetCard: React.FC<Props> = ({ text, name, username, date, imageurl ,pic}
 
       <div className='my-6'>
       
-      <Card className='flex items-center' >
-        <ColorSelector  currentColor={selectedColor} onColorSelect={setSelectedColor} />
+      <Card  >
+      <div className="flex flex-row items-center">
+        <ColorSelector currentColor={selectedColor} onColorSelect={setSelectedColor} />
         <button className="mx-4 px-4 py-2 font-light text-lg text-white bg-cyan-600 rounded-md hover:bg-cyan-700" onClick={onButtonClick}>
         Download
         </button>
+      </div>
       </Card>
       </div>
     </div>
