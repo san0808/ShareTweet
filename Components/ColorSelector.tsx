@@ -12,31 +12,33 @@ const ColorSelector: React.FC<Props> = ({ currentColor, onColorSelect }) => {
 
 
   return (
-    <div className="relative flex items-center justify-center h-10 w-10 hover:bg-slate-100  " 
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}>
-      <div
-        className="rounded-full h-6 w-6 cursor-pointer "
-        style={{ backgroundColor: currentColor }}
-        
-      />
-      <div className="absolute top-10 left-0 z-10">
+    <div className='flex items-center justify-center h-14 w-14 '
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}>
+      <div className="relative flex items-center justify-center h-10 w-10 hover:bg-green-50">
         <div
-          className={`p-1 bg-white rounded-lg shadow-md after:content-none after:bottom-4 ${isHovered ? 'block' : 'hidden'}`}
-          style={{ minWidth: '2rem' }}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          {colors.map((color) => (
-            <div
-              key={color}
-              className={`rounded-full h-6 w-6 cursor-pointer ${currentColor === color ? 'shadow-outline' : ''}`}
-              style={{ backgroundColor: color }}
-              onClick={() => onColorSelect(color)}
-            />
-          ))}
+          className="rounded-full h-6 w-6 cursor-pointer "
+          style={{ backgroundColor: currentColor }}
+          
+        />
+        <div className="absolute top-12 left-0 z-10">
+          <div
+            className={`p-1 bg-white rounded-lg shadow-md   ${isHovered ? 'block' : 'hidden'}`}
+            style={{ minWidth: '2rem' }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {colors.map((color) => (
+              <div
+                key={color}
+                className={`rounded-full h-6 w-6 cursor-pointer ${currentColor === color ? 'shadow-outline' : ''}`}
+                style={{ backgroundColor: color }}
+                onClick={() => onColorSelect(color)}
+              />
+            ))}
+          </div>
+          <div className={`${isHovered ? 'block' : 'hidden'} absolute top-2 left-0 bottom-4 bg-white rounded-full h-4 w-4`} style={{ zIndex: -1 }}></div>
         </div>
-        <div className={`${isHovered ? 'block' : 'hidden'} absolute top-2 left-0 bottom-4 bg-white rounded-full h-4 w-4`} style={{ zIndex: -1 }}></div>
       </div>
     </div>
   );
