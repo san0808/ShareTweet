@@ -11,7 +11,7 @@ type Props = {
   date: string;
   imageurl: string;
   pic: string;
-  onColorSelect: (color: string) => void;
+ 
 };
 
 const TweetCard: React.FC<Props> = ({ text, name, username, date, imageurl ,pic}) => {
