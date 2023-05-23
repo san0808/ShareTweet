@@ -1,4 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ShareTweet
+
+ShareTweet is a web application that allows you to easily download and share images from Twitter. With ShareTweet, all you need to do is paste the Twitter URL of a tweet, and you will be provided with a downloadable image that you can share on the internet.
+
+## Features
+
+- Simple and intuitive user interface.
+- Quick and easy image download from Twitter.
+- Compatibility with various Twitter URLs, including tweets, images, and videos.
+- Automatic extraction of the highest resolution image available.
+- Support for downloading images from public Twitter profiles.
+
+## Technologies Used
+
+- Next.js: Next.js is a React framework that enables server-side rendering, static site generation, and other performance optimizations.
+- Express: Express is a minimalist web application framework for Node.js, which helps in creating robust and scalable web applications.
+- Twitter API: The Twitter API allows developers to access and interact with various Twitter functionalities, such as retrieving tweet details and media.
+
+## Installation
+
+To run ShareTweet locally on your machine, please follow these steps:
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/san0808/ShareTweet.git
+
+cd ShareTweet
+
+npm install
+
+checkout the express sever here https://github.com/san0808/ShareTweetBackend
 
 ## Getting Started
 
