@@ -12,7 +12,7 @@ const TweetBox: React.FC<Props> = ({Url}) => {
     name: 'Sanket Bhat',
     username: 'Sanketbhat11',
     date: '10:03 PM · Jan 3, 2023',
-    imageurl: 'https://pbs.twimg.com/profile_images/1521352958713413632/GD88rHP4_400x400.jpg',
+    imageurl: 'https://pbs.twimg.com/profile_images/1660631608028991488/rVo6HFy4_400x400.jpg',
     pic: " "
   });
 

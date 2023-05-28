@@ -10,7 +10,7 @@ function UrlInput() {
         <input
           className="shadow-md w-4/12 p-2  border-slate-300 hover:border-lime-100 rounded-lg  "
           type="text"
-          placeholder="Enter tweet URL"
+          placeholder="Enter tweet URL 1"
           value= {url}
           onChange={e => setUrl(e.target.value)}
         />
