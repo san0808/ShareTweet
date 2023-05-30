@@ -17,6 +17,11 @@ const TweetBox: React.FC<Props> = ({Url}) => {
   });
 
   const tweetUrl = Url;
+  
+  if (tweetUrl.includes("?s=20"))
+  {
+    tweetUrl.replace("?s=20", "");
+  }
 
   const urlParts = tweetUrl.split('/');
 
