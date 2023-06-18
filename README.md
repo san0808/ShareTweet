@@ -2,6 +2,11 @@
 
 ShareTweet is a web application that allows you to easily download and share images from Twitter. With ShareTweet, all you need to do is paste the Twitter URL of a tweet, and you will be provided with a downloadable image that you can share on the internet.
 
+##New Update
+
+There have been changes in the Twitter api v2 guidelines and the Tweet lookup no longer comes under free , therefore you can't try it out in the deplyed vercel page
+but the code is a a working one , therefore feel free to use your bearer token for your app
+
 ## Features
 
 - Simple and intuitive user interface.
