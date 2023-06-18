@@ -4,7 +4,7 @@ ShareTweet is a web application that allows you to easily download and share ima
 
 ## New Update
 
-There have been changes in the Twitter api v2 guidelines and the Tweet lookup no longer comes under free , therefore you can't try it out in the deplyed vercel page
+There have been changes in the Twitter api v2 guidelines and the Tweet lookup no longer comes under free , therefore you can't try it out in the deployed vercel page
 but the code is a a working one , therefore feel free to use your bearer token for your app
 
 ## Features
